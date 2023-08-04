@@ -52,6 +52,9 @@ app.post("/sendmail", async (req, res, next) => {
       };
       try {
         await transporter.sendMail(messageOption);
+        res.status(200).json({
+          message: 'Email sent successfully!'
+        })
       } catch (error) {
         console.log(error);
       }
